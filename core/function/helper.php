@@ -1,10 +1,10 @@
 <?php
 /**
- * @copyright (C)2016-2099 Hnaoyun Inc.
- * @license This is not a freeware, use is subject to license terms
- * @author XingMeng
- * @email hnxsh@foxmail.com
- * @date 2017年11月5日
+ * YCMS
+ * @license Apache License 2.0
+ * @date 2019-04-21
+ * @git https://github.com/yuenshui/YCMS.git
+ * 
  *  助手函数
  */
 use core\basic\Config;

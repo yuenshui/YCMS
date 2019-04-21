@@ -1,10 +1,10 @@
 <?php
 /**
- * @copyright (C)2016-2099 Hnaoyun Inc.
- * @license This is not a freeware, use is subject to license terms
- * @author XingMeng
- * @email hnxsh@foxmail.com
- * @date 2017年11月6日
+ * YCMS
+ * @license Apache License 2.0
+ * @date 2019-04-21
+ * @git https://github.com/yuenshui/YCMS.git
+ * 
  *  生成指定模块下控制器方法的跳转路径
  */
 namespace core\basic;
@@ -17,7 +17,7 @@ class Url
 
     // 接收控制器方法完整访问路径，如：/home/Index/index /模块/控制器/方法/.. 路径，生成可访问地址
     public static function get($path, $addExt = true)
-    {   var_dump($path, $addExt);
+    {
         if (strpos($path, 'http') === 0) {
             return $path;
         }
@@ -66,7 +66,7 @@ class Url
                     }
                 }
             }
-            
+
             // 入口文件绑定匹配
             if (defined('URL_BLIND') && $path_arr[0] == M) {
                 $url_blind = trim_slash(URL_BLIND);
@@ -106,7 +106,6 @@ class Url
                 self::$urls[$path] = $host . self::getPrePath(); // 获取根路径前置地址
             }
         }
-        var_dump(self::$urls);
         return self::$urls[$path];
     }
 
@@ -114,7 +113,11 @@ class Url
     private static function getPrePath()
     {
         if (is_rewrite()) {
-            $pre_path = SITE_DIR;
+            if(strpos($_SERVER['REQUEST_URI'], '/' . URL_BLIND . '/') == 0) {
+                $pre_path = '/' . URL_BLIND;
+            } else {
+                $pre_path = SITE_DIR;
+            }
         } else {
             $pre_path = $_SERVER["SCRIPT_NAME"];
         }

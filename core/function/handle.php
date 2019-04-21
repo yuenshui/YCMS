@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @copyright (C)2016-2099 Hnaoyun Inc.
- * @license This is not a freeware, use is subject to license terms
- * @author XingMeng
- * @email hnxsh@foxmail.com
- * @date 2017年11月5日
+ * YCMS
+ * @license Apache License 2.0
+ * @date 2019-04-21
+ * @git https://github.com/yuenshui/YCMS.git
+ * 
  *  
  */
 use core\basic\Config;
@@ -760,11 +760,12 @@ function get_month_days($date, $start = 0, $interval = 1, $retamp = false)
 function is_rewrite()
 {
     $indexfile = $_SERVER["SCRIPT_NAME"];
-    if (Config::get('url_type') == 2 && strrpos($indexfile, 'index.php') !== false) {
-        return true;
-    } else {
-        return false;
-    }
+    return $_SERVER["SCRIPT_NAME"] !== $_SERVER["REQUEST_URI"];
+    // if (Config::get('url_type') == 2 && strrpos($indexfile, 'index.php') !== false) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
 }
 
 // 获取服务端web软件

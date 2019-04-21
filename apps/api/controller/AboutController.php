@@ -1,10 +1,10 @@
 <?php
 /**
- * @copyright (C)2016-2099 Hnaoyun Inc.
- * @license This is not a freeware, use is subject to license terms
- * @author XingMeng
- * @email hnxsh@foxmail.com
- * @date 2018年11月11日
+ * YCMS
+ * @license Apache License 2.0
+ * @date 2019-04-21
+ * @git https://github.com/yuenshui/YCMS.git
+ * 
  *  单页内容通过分类编码调用接口控制器
  */
 namespace app\api\controller;
